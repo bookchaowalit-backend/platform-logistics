@@ -7,7 +7,9 @@ from fastapi.responses import JSONResponse
 from platform_backend_core import create_app as base_app
 from platform_backend_core import require_scope
 from pydantic import AwareDatetime, BaseModel, ConfigDict, Field
+from starlette.middleware import Middleware
 
+from ._sentry import CaptureErrors
 from .carriers import configured_carriers
 from .store import (
     Conflict,
@@ -66,6 +68,8 @@ def json(body, status=200):
 
 def create_app(database, verifier, *, carriers=None):
     app = base_app('logistics', database, verifier, max_body_bytes=16384)
+    # Last in the list = innermost: inside the core boundary that turns errors into a 500.
+    app.user_middleware.append(Middleware(CaptureErrors))
     carriers = configured_carriers() if carriers is None else dict(carriers)
     store = LogisticsStore(database, carriers)
     app.state.carriers = carriers
