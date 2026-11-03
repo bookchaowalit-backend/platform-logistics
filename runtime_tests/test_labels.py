@@ -72,7 +72,10 @@ def test_uncertain_after_effect_is_quarantined_until_reconciled(database):
         'status': 'uncertain', 'tracking_number': None, 'label_ref': None}
     calls = []
     original = carrier.purchase_label
-    carrier.purchase_label = lambda *a: calls.append(a) or original(*a)
+    def recording(*a):
+        calls.append(a)
+        return original(*a)
+    carrier.purchase_label = recording
     with pytest.raises(LabelUncertain):
         s.purchase_label(w, sid)
     assert calls == [] and carrier.purchases == 1

@@ -1,6 +1,7 @@
 """Disposable PostgreSQL databases with NOSUPERUSER NOBYPASSRLS runtime roles, and signed test tokens."""
 import os
 import time
+from typing import Any
 from uuid import uuid4
 
 import jwt
@@ -12,7 +13,7 @@ from platform_backend_core.testing import temporary_database
 
 from platform_logistics.migrations import MIGRATIONS
 
-SHIPMENT = {
+SHIPMENT: dict[str, Any] = {
     'reference': 'order-1001',
     'recipient_ref': 'contact:fixture-1',
     'carrier': 'sandbox',
