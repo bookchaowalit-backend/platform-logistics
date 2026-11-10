@@ -10,7 +10,7 @@ flowchart LR
   PROD -.-> INC["Failure seen by uptime / Sentry"]
 ```
 
-Sources: `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`, `railway.toml`, ops record: book-platforms-status (2026-11-03)
+Sources: `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`, `.railway/railway.ts`, ops record: book-platforms-status (2026-11-03)
 
 | Metric | How measured for this repo | Current value (90 d) | Command |
 |---|---|---|---|

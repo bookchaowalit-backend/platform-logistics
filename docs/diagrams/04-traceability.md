@@ -16,7 +16,7 @@ Release/workflow: ทุก test รันใน `check.yml` (job `contract` ส
 | R-08 | Workspace isolation ด้วย forced RLS | `README.md` Runtime pilot | `migrations.py`, `store.py` | `runtime_tests/test_shipments.py` (`test_workspaces_are_isolated_and_rls_rejects_foreign_rows`), `runtime_tests/test_pool_reuse.py` | `check.yml` python |
 | R-09 | สถานะเปลี่ยนตามกราฟเท่านั้น | `docs/runtime.md` Fulfillment status | `rules.TRANSITIONS` | `runtime_tests/test_rates_and_transitions.py`, `runtime_tests/test_shipments.py` (`test_cancel_only_from_created`) | `check.yml` python |
 | R-10 | Error generic; 422 เฉพาะ `InvalidInput` | `docs/runtime.md` API, 422 section | `app.py`, `errors.py` | `runtime_tests/test_error_mapping.py` | `check.yml` python |
-| R-11 | `/readyz` 200 เฉพาะเมื่อ migration, RLS, grants และ carrier พร้อม | `PRODUCT.md` Success | `store.ready`, `app.py` readiness checks | `runtime_tests/test_http.py` | `check.yml` python; Railway healthcheck `/readyz` (`railway.toml`) |
+| R-11 | `/readyz` 200 เฉพาะเมื่อ migration, RLS, grants และ carrier พร้อม | `PRODUCT.md` Success | `store.ready`, `app.py` readiness checks | `runtime_tests/test_http.py` | `check.yml` python; Railway healthcheck `/readyz` (`.railway/railway.ts`) |
 | R-12 | startup error ไม่พิมพ์ค่า config; migrate แยกจาก serve | `docs/runtime.md` | `__main__.py` | `runtime_tests/test_lifecycle.py` | `check.yml` python |
 | R-13 | Sentry ไม่มี free text / request data | `PRODUCT.md` Operating Context | `_sentry.py` | `runtime_tests/test_sentry.py` | `check.yml` python |
 | R-14 | image build จาก clean checkout, non-root, actions pin SHA | `docs/runtime.md` Container image | `Dockerfile`, workflows | `tests/test_build_hygiene.py` | `shared-runtime.yml` image |
@@ -35,7 +35,7 @@ flowchart LR
   CI --> DEP["Railway CLI deploy (manual, not linked)"]
 ```
 
-Sources: `PRODUCT.md`, `README.md`, `contract.json`, `docs/runtime.md`, `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`, `railway.toml`, ไฟล์ test ทั้งหมดใน `tests/` และ `runtime_tests/`
+Sources: `PRODUCT.md`, `README.md`, `contract.json`, `docs/runtime.md`, `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`, `.railway/railway.ts`, ไฟล์ test ทั้งหมดใน `tests/` และ `runtime_tests/`
 
 ## Open questions
 

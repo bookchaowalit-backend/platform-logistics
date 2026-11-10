@@ -181,7 +181,7 @@ flowchart LR
 
 - repo `bookchaowalit-backend/platform-logistics` `origin/main` `bde9db7` (live runtime ตาม ops record `501601f`)
 - `PRODUCT.md`, `README.md`, `contract.json`, `docs/runtime.md`, `docs/CONTRACT-SURFACE.md`, `docs/UPGRADE-PLAN.md`
-- `pyproject.toml`, `uv.lock`, `Dockerfile`, `railway.toml`, `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`
+- `pyproject.toml`, `uv.lock`, `Dockerfile`, `.railway/railway.ts`, `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`
 - `src/platform_logistics/{__main__,app,store,rules,carriers,errors,migrations,_sentry}.py`, `tests/`, `runtime_tests/`
 - `docs/diagrams/` (Core 22 pack, commit `bde9db7`) และ `docs/diagrams/08-adr/ADR-0001…0006`
 - `bookchaowalit-backend/platform-api-gateway@51c4711` `routes.json`; `bookchaowalit/platform-mcp-remote-worker@7d127c2` `src/worker.ts`, `wrangler.toml`

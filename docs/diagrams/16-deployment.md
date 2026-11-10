@@ -26,7 +26,7 @@ flowchart LR
   UPT --> URL
 ```
 
-Sources: `railway.toml`, `Dockerfile`, `src/platform_logistics/__main__.py`, `PRODUCT.md` (Operating Context), ops record: book-platforms-status (2026-11-03) (live list, region, sleep, Neon/Infisical/Sentry naming, JWT issuer, deploy recipe, monitoring); `bookchaowalit/platform-uptime-worker` `src/targets.ts` @ `fe04d27` (`logistics-api` → `/readyz`)
+Sources: `.railway/railway.ts`, `Dockerfile`, `src/platform_logistics/__main__.py`, `PRODUCT.md` (Operating Context), ops record: book-platforms-status (2026-11-03) (live list, region, sleep, Neon/Infisical/Sentry naming, JWT issuer, deploy recipe, monitoring); `bookchaowalit/platform-uptime-worker` `src/targets.ts` @ `fe04d27` (`logistics-api` → `/readyz`)
 
 ## Environment variables (names only)
 

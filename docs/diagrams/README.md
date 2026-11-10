@@ -11,9 +11,9 @@
 | 03 | User flows (API call flows) | done | [03-user-flows.md](03-user-flows.md) | `app.py`, `store.py`, `__main__.py`, ops record |
 | 04 | Traceability (RTM) | done | [04-traceability.md](04-traceability.md) | `PRODUCT.md`, `contract.json`, `docs/runtime.md`, workflows, all tests |
 | 05 | C4 Context | done | [05-c4-context.md](05-c4-context.md) | `__main__.py`, `_sentry.py`, `PRODUCT.md`, ops record |
-| 06 | C4 Container | done | [06-c4-container.md](06-c4-container.md) | `Dockerfile`, `railway.toml`, `migrations.py`, `pyproject.toml` |
+| 06 | C4 Container | done | [06-c4-container.md](06-c4-container.md) | `Dockerfile`, `.railway/railway.ts`, `migrations.py`, `pyproject.toml` |
 | 07 | C4 Component | done | [07-c4-component.md](07-c4-component.md) | all `src/platform_logistics/*.py` |
-| 08 | ADRs | done (6, retro-documented) | [08-adr/](08-adr/) | `pyproject.toml`, `Dockerfile`, `railway.toml`, `migrations.py`, `store.py`, `_sentry.py`, git log, ops record |
+| 08 | ADRs | done (6, retro-documented) | [08-adr/](08-adr/) | `pyproject.toml`, `Dockerfile`, `.railway/railway.ts`, `migrations.py`, `store.py`, `_sentry.py`, git log, ops record |
 | 09 | ERD | done | [09-erd.md](09-erd.md) | `migrations.py`, `store.py` |
 | 10 | Sequences | done | [10-sequences.md](10-sequences.md) | `app.py`, `store.py`, `carriers.py` |
 | 11 | State machines | done | [11-state-machines.md](11-state-machines.md) | `rules.py`, `store.py`, `migrations.py` |
@@ -21,7 +21,7 @@
 | 13 | Threat model | done | [13-threat-model.md](13-threat-model.md) | `app.py`, `_sentry.py`, `migrations.py`, `Dockerfile`, core `http.py`/`auth.py` @ 21d5f44 |
 | 14 | Backup and DR | done (backup unverified) | [14-backup-dr.md](14-backup-dr.md) | `migrations.py`, `carriers.py`, `docs/runtime.md`, central ADR-0002 |
 | 15 | CI/CD pipeline | done | [15-cicd-pipeline.md](15-cicd-pipeline.md) | `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`, `scripts/check.sh` |
-| 16 | Deployment | done | [16-deployment.md](16-deployment.md) | `railway.toml`, `Dockerfile`, `__main__.py`, `PRODUCT.md`, ops record, uptime `targets.ts` |
+| 16 | Deployment | done | [16-deployment.md](16-deployment.md) | `.railway/railway.ts`, `Dockerfile`, `__main__.py`, `PRODUCT.md`, ops record, uptime `targets.ts` |
 | 17 | Test coverage matrix | done | [17-test-coverage-matrix.md](17-test-coverage-matrix.md) | `tests/*.py`, `runtime_tests/*.py`, `check.yml` |
 | 18 | Git / release workflow | done | [18-git-release-workflow.md](18-git-release-workflow.md) | `git log`, `gh pr list`, workflows, ops record |
 | 19 | Service dependency map | done | [19-service-dependency-map.md](19-service-dependency-map.md) | `pyproject.toml`, `contract.json`, `__main__.py`, ops record |

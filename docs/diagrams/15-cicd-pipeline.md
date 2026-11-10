@@ -27,7 +27,7 @@ flowchart TD
   DEP --> RW["Railway build from Dockerfile, healthcheck /readyz"]
 ```
 
-Sources: `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`, `scripts/check.sh`, `railway.toml`, `PRODUCT.md` (CI, "Deploys are Railway CLI uploads"), ops record: book-platforms-status (2026-11-03) (deploy recipe)
+Sources: `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`, `scripts/check.sh`, `.railway/railway.ts`, `PRODUCT.md` (CI, "Deploys are Railway CLI uploads"), ops record: book-platforms-status (2026-11-03) (deploy recipe)
 
 - Jobs ทั้ง 3 ใน `check.yml` ไม่มี `needs:` ต่อกัน จึงรันขนานกัน.
 - Runner: GitHub-hosted (`ubuntu-latest`) เพราะ repo public (`PRODUCT.md`).

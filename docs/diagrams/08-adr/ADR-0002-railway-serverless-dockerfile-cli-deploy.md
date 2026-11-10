@@ -10,12 +10,12 @@ Service ยังไม่มี consumer จริง ค่าใช้จ่�
 ## Decision
 
 - Railway service `logistics-api` (`https://logistics-api-production-d3bb.up.railway.app`), region `asia-southeast1-eqsg3a`, sleep on.
-- Build ด้วย `Dockerfile` multi-stage (`railway.toml` `builder = "DOCKERFILE"`), healthcheck `/readyz` timeout 30 s, restart `ON_FAILURE` สูงสุด 3 ครั้ง.
+- Build ด้วย `Dockerfile` multi-stage (`.railway/railway.ts` `builder = "DOCKERFILE"`), healthcheck `/readyz` timeout 30 s, restart `ON_FAILURE` สูงสุด 3 ครั้ง.
 - Deploy ด้วย `railway up --ci` จาก `git archive main` (CLI upload ไม่ต้องผ่าน approval gate); CI ไม่มี deploy job.
 
 ## Evidence
 
-- `railway.toml`, `Dockerfile`
+- `.railway/railway.ts`, `Dockerfile`
 - `PRODUCT.md` (Operating Context: "Railway (`asia-southeast1`, sleeps when idle)", "Deploys are Railway CLI uploads")
 - `.github/workflows/shared-runtime.yml` (image build "Nothing is pushed or deployed")
 - ops record: book-platforms-status (2026-11-03) (deploy recipe, region, logistics-api-production-d3bb)

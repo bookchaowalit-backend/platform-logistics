@@ -41,7 +41,7 @@ flowchart LR
   H --> V["Verify /readyz 200 + sentry enabled log"]
 ```
 
-Sources: `git log --since=90.days origin/main`, `gh pr list -R bookchaowalit-backend/platform-logistics --state all`, `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`, `railway.toml`, ops record: book-platforms-status (2026-11-03) (deploy recipe, "CLI uploads need no approval", "/readyz 200, `sentry: enabled` logged")
+Sources: `git log --since=90.days origin/main`, `gh pr list -R bookchaowalit-backend/platform-logistics --state all`, `.github/workflows/check.yml`, `.github/workflows/shared-runtime.yml`, `.railway/railway.ts`, ops record: book-platforms-status (2026-11-03) (deploy recipe, "CLI uploads need no approval", "/readyz 200, `sentry: enabled` logged")
 
 ชื่อ branch ใน gitGraph ย่อมาจาก merge message (เช่น "Merge Sentry error reporting (sentry)") หรือ `gh pr list`: `fix-sentry-hardening` = `fix/sentry-hardening-port` (PR #2), `no-free-text` = `fix/sentry-no-free-text` (PR #12). PR #3–#11 (`fix/sentry-*`) และ #13 (`ci/uv-lock-mypy-product`) ไม่ได้วาดทีละเส้น.
 

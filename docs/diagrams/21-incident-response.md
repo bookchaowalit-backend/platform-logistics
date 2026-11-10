@@ -23,7 +23,7 @@ flowchart TD
   RBA --> PM
 ```
 
-Sources: `docs/runtime.md` (readiness, Rollback, Label purchase reconcile), `src/platform_logistics/store.py` (`ready`, `reconcile_label`), `src/platform_logistics/_sentry.py`, `railway.toml`, `PRODUCT.md`, ops record: book-platforms-status (2026-11-03) (uptime worker, Sentry, deploy recipe); central [ADR-0002](https://github.com/bookchaowalit/architecture-docs/blob/main/docs/architecture/decisions/ADR-0002-production-baseline-monitoring-backups.md) (Telegram)
+Sources: `docs/runtime.md` (readiness, Rollback, Label purchase reconcile), `src/platform_logistics/store.py` (`ready`, `reconcile_label`), `src/platform_logistics/_sentry.py`, `.railway/railway.ts`, `PRODUCT.md`, ops record: book-platforms-status (2026-11-03) (uptime worker, Sentry, deploy recipe); central [ADR-0002](https://github.com/bookchaowalit/architecture-docs/blob/main/docs/architecture/decisions/ADR-0002-production-baseline-monitoring-backups.md) (Telegram)
 
 ## Open questions
 

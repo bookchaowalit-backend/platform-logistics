@@ -17,7 +17,7 @@ The three migration gates in the registry map to code and tests:
 
 ## Installation and lifecycle
 
-Python >=3.12, PostgreSQL >=16. Nothing is published to PyPI. `railway.toml` is a
+Python >=3.12, PostgreSQL >=16. Nothing is published to PyPI. `.railway/railway.ts` is a
 reference release asset; nothing was deployed.
 
 ### Container image
