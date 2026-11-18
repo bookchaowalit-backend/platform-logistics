@@ -76,6 +76,17 @@ def test_rates_need_scope_and_are_deterministic(client):
     assert c.post('/v1/rates', headers=headers('rates:read'), json=body | {'parcel': {'weight_grams': 0}}).status_code == 422
 
 
+def test_docs_ui_is_not_served_and_metrics_need_a_scope(client):
+    c, headers, _ = client
+    for path in ('/docs', '/docs/oauth2-redirect', '/redoc'):
+        assert c.get(path).status_code == 404
+    assert c.get('/metrics').status_code == 401
+    assert c.get('/metrics', headers=headers('rates:read')).status_code == 403
+    assert c.get('/metrics', headers=headers('metrics:read')).status_code == 200
+    assert c.get('/healthz').status_code == 200
+    assert c.get('/openapi.json').status_code == 200
+
+
 def test_shipment_lifecycle_over_http(client, caplog):
     caplog.set_level(logging.DEBUG)
     c, headers, carrier = client

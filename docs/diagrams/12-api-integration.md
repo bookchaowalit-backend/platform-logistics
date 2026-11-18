@@ -13,7 +13,8 @@
 | POST | `/v1/shipments/{id}/label/reconcile` | `labels:write` | ปลอดภัยที่จะเรียกซ้ำ; label ที่ไม่ uncertain คืนค่าเดิม | 200 | 404, 409, 422 |
 | POST | `/v1/tracking-events` | `tracking:write` | dedupe ด้วย `(workspace_id, carrier, carrier_event_id)` | 201 applied/recorded, 200 duplicate | 404, 409, 422 |
 | GET | `/v1/shipments/{id}/events` | `shipments:read` | read, ≤500 แถว | 200 | 404 |
-| GET | `/healthz`, `/readyz`, `/metrics` | none (shared core) | — | 200 / 503 | — |
+| GET | `/healthz`, `/readyz` | none (shared core) | — | 200 / 503 | — |
+| GET | `/metrics` | JWT scope `metrics:read` | — | 200 / 401 / 403 | — |
 
 Sources: `src/platform_logistics/app.py`, `src/platform_logistics/store.py`, `docs/runtime.md` (API), `runtime_tests/test_http.py`, `runtime_tests/test_error_mapping.py`
 

@@ -56,7 +56,9 @@ Dockerfile and `[tool.uv.sources]` together; the tests fail on any mismatch.
 - `LOGISTICS_CARRIERS=sandbox` enables the sandbox carrier. Unknown names are
   ignored; with no carrier `serve` refuses to start and `/readyz` is 503.
 - Startup failures print one generic line, never configuration values.
-- `GET /healthz`, `/readyz`, `/metrics` come from the shared core. Readiness checks
+- `GET /healthz`, `/readyz` are public probes from the shared core; `GET /metrics` needs
+  the `metrics:read` scope. `/openapi.json` stays public; the Swagger/ReDoc UI
+  (`/docs`, `/redoc`) is not served. Readiness checks
   the exact applied migration versions and checksums, forced RLS on all three
   tables, schema USAGE, history SELECT and each required table privilege
   separately (a comma privilege list in PostgreSQL means "any").

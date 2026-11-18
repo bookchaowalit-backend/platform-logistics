@@ -4,6 +4,7 @@ from uuid import UUID
 from fastapi import Depends, Header, HTTPException, Query
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
+from fastapi.routing import APIRoute
 from platform_backend_core import create_app as base_app
 from platform_backend_core import require_scope
 from pydantic import AwareDatetime, BaseModel, ConfigDict, Field
@@ -66,8 +67,17 @@ def json(body, status=200):
     return JSONResponse(jsonable_encoder(body), status)
 
 
+NOT_PUBLIC = frozenset({'/docs', '/docs/oauth2-redirect', '/redoc', '/metrics'})
+
+
 def create_app(database, verifier, *, carriers=None):
     app = base_app('logistics', database, verifier, max_body_bytes=16384)
+    # Only probes, the API and its schema are public: no docs UI, and metrics need a scope.
+    metrics = next(r.endpoint for r in app.router.routes if isinstance(r, APIRoute) and r.path == '/metrics')
+    app.router.routes = [r for r in app.router.routes if getattr(r, 'path', None) not in NOT_PUBLIC]
+    app.docs_url = app.redoc_url = None
+    app.add_api_route('/metrics', metrics, methods=['GET'], include_in_schema=False,
+                      dependencies=[Depends(require_scope('metrics:read'))])
     # Last in the list = innermost: inside the core boundary that turns errors into a 500.
     app.user_middleware.append(Middleware(CaptureErrors))
     carriers = configured_carriers() if carriers is None else dict(carriers)
